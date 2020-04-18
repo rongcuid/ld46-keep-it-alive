@@ -36,6 +36,7 @@ func _on_MainLevel_game_start_animation_began():
 	emit_signal(\"keep_animate_started\")
 	_explode_props()
 	yield(_player, \"keep_animate_ended\")
+	emit_signal(\"game_start_animation_end\")
 "
 
 [node name="MainLevel" type="Spatial"]
@@ -255,6 +256,9 @@ margin_right = 181.0
 margin_bottom = 46.0
 rect_scale = Vector2( 3, 3 )
 text = "Health:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Health" type="ProgressBar" parent="UI/HealthBar"]
 anchor_left = 1.0
