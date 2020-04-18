@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/Castle_Bake1_pbr_diffuse.png-4a49371d8551d19648cdb854f2e5e3ed.s3tc.stex"
+path.etc="res://.import/Castle_Bake1_pbr_diffuse.png-4a49371d8551d19648cdb854f2e5e3ed.etc.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://assets/enemy/textures/Castle_Bake1_pbr_diffuse.png"
+dest_files=[ "res://.import/Castle_Bake1_pbr_diffuse.png-4a49371d8551d19648cdb854f2e5e3ed.s3tc.stex", "res://.import/Castle_Bake1_pbr_diffuse.png-4a49371d8551d19648cdb854f2e5e3ed.etc.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

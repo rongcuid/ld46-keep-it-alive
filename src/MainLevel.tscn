@@ -1,0 +1,279 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/Ground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Army.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Trebuchet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Castle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/MainLevel.gd" type="Script" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+
+signal keep_animate_started
+signal game_start_animation_end
+
+export(NodePath) var player: NodePath
+export(NodePath) var props: NodePath
+
+
+onready var _player: Player = get_node(player) 
+onready var _props: Spatial = get_node(props)
+
+
+func _explode_props():
+	for c in _props.get_children():
+		var rb: RigidBody = c as RigidBody
+		if is_instance_valid(rb):
+			var position: = Vector3(randf(), randf(), randf())
+			var impulse: = (rb.translation.normalized()) * 10.0 + Vector3(0, 20, 0)
+			rb.apply_impulse(position, impulse)
+
+
+func _on_MainLevel_game_start_animation_began():
+	emit_signal(\"keep_animate_started\")
+	_explode_props()
+	yield(_player, \"keep_animate_ended\")
+"
+
+[node name="MainLevel" type="Spatial"]
+script = ExtResource( 7 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0 )
+
+[node name="Camera" type="Camera" parent="Player"]
+transform = Transform( 0.984808, -0.0154092, 0.172963, 0, 0.996055, 0.0887378, -0.173648, -0.0873897, 0.980923, 12.426, 14.467, 35 )
+current = true
+fov = 57.0
+
+[node name="Terrain" type="Spatial" parent="."]
+
+[node name="Ground" parent="Terrain" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="Ground2" parent="Terrain" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -50, 0 )
+
+[node name="Ground3" parent="Terrain" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, -50, 0 )
+
+[node name="Props" type="Spatial" parent="."]
+
+[node name="Wall" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, -24.5192 )
+
+[node name="Wall2" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, -14.5192 )
+
+[node name="Wall10" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, -44.5192 )
+
+[node name="Wall9" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, -34.5192 )
+
+[node name="Wall3" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, -4.51923 )
+
+[node name="Wall4" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 5.48078 )
+
+[node name="Wall8" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 15.4808 )
+
+[node name="Wall7" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 25.4808 )
+
+[node name="Wall6" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 35.4808 )
+
+[node name="Wall5" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 45.4808 )
+
+[node name="Wall11" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -6, 0, 49.4808 )
+
+[node name="Wall12" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -16.1, 0, 49.4808 )
+
+[node name="Wall14" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -26.1, 0, 49.4808 )
+
+[node name="Wall13" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -36.1, 0, 49.4808 )
+
+[node name="Wall28" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -48.5192 )
+
+[node name="Wall27" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1, 0, -48.5192 )
+
+[node name="Wall26" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1, 0, -48.5192 )
+
+[node name="Wall25" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1, 0, -48.5192 )
+
+[node name="Wall15" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, 44.4808 )
+
+[node name="Wall16" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, 34.4808 )
+
+[node name="Wall18" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, 24.4808 )
+
+[node name="Wall17" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, 14.4808 )
+
+[node name="Wall20" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, 4.48077 )
+
+[node name="Wall19" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, -5.51923 )
+
+[node name="Wall22" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, -15.5192 )
+
+[node name="Wall21" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, -25.5192 )
+
+[node name="Wall24" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, -35.5192 )
+
+[node name="Wall23" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0, -45.5192 )
+
+[node name="Enemies" type="Spatial" parent="."]
+
+[node name="Castle" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 171, 0, 0 )
+
+[node name="Army" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
+
+[node name="Army2" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0 )
+
+[node name="Army3" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0 )
+
+[node name="Army4" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, -9 )
+
+[node name="Army5" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 9 )
+
+[node name="Army6" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 0, 9 )
+
+[node name="Army7" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 0, 0 )
+
+[node name="Army8" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 0, -10 )
+
+[node name="Trebuchet" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0 )
+
+[node name="Trebuchet2" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -9 )
+
+[node name="Trebuchet3" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 6 )
+
+[node name="Trebuchet5" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, -9 )
+
+[node name="Trebuchet4" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, 6 )
+
+[node name="Trebuchet7" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, -9 )
+
+[node name="Trebuchet6" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 6 )
+
+[node name="Trebuchet9" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, 0, -9 )
+
+[node name="Trebuchet8" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, 0, 6 )
+
+[node name="Trebuchet11" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, 0, -9 )
+
+[node name="Trebuchet10" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, 0, 6 )
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="UI" type="Control" parent="."]
+margin_right = 1920.0
+margin_bottom = 1088.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -496.0
+margin_top = 32.0
+margin_right = -392.0
+margin_bottom = 60.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "SCORE: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartScreen" type="ColorRect" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -112.0
+margin_right = 136.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="Label" parent="UI"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 181.0
+margin_bottom = 46.0
+rect_scale = Vector2( 3, 3 )
+text = "Health:"
+
+[node name="Health" type="ProgressBar" parent="UI/HealthBar"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -69.0
+margin_top = -12.0
+margin_bottom = 12.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CinematicsController" type="Node" parent="."]
+script = SubResource( 1 )
+player = NodePath("../Player")
+props = NodePath("../Props")
+[connection signal="game_start_animation_began" from="." to="CinematicsController" method="_on_MainLevel_game_start_animation_began"]
+[connection signal="game_started" from="." to="Player" method="_on_Player_enabled"]
+[connection signal="game_start_animation_end" from="CinematicsController" to="." method="_on_game_start_animation_end"]
+[connection signal="keep_animate_started" from="CinematicsController" to="Player" method="_on_keep_animate_started"]
