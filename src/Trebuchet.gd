@@ -4,7 +4,7 @@ extends Area
 A Trebuchet which can attack and be destroyed
 """
 
-signal destroyed
+signal destroyed(score)
 
 onready var body: Spatial = $"Trebuchet Body"
 onready var sling: Spatial = $"Trebuchet Sling"
@@ -34,4 +34,5 @@ func _on_released_attack() -> void:
 func _on_Trebuchet_body_entered(body: PhysicsBody):
 	if body.get_collision_layer_bit(0):
 		# If player touches
-		emit_signal("destroyed")
+		emit_signal("destroyed", 10)
+		queue_free()

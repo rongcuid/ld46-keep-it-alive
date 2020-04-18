@@ -1,8 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/enemy/Shield.material" type="Material" id=1]
 [ext_resource path="res://assets/enemy/Sword.material" type="Material" id=2]
 [ext_resource path="res://assets/enemy/Body.material" type="Material" id=3]
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Area
+
+signal destroyed(score)
+
+func _on_Warrior_body_entered(body: PhysicsBody):
+	if body.get_collision_layer_bit(0):
+		# If player touches
+		emit_signal(\"destroyed\", 1)
+		queue_free()
+"
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Warrior"
@@ -64,6 +76,7 @@ tracks/0/keys = {
 [node name="Warrior" type="Area"]
 collision_layer = 2
 collision_mask = 32
+script = SubResource( 4 )
 
 [node name="Warrior" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
@@ -78,3 +91,4 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/idle = SubResource( 3 )
+[connection signal="body_entered" from="." to="." method="_on_Warrior_body_entered"]

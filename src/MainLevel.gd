@@ -12,6 +12,8 @@ var _game_state: = GST_STARTSCREEN
 
 func _ready():
 	set_physics_process(true)
+	for e in $Enemies.get_children():
+		e.connect("destroyed", self, "_on_enemy_destroyed")
 
 
 func _physics_process(delta: float) -> void:
@@ -34,6 +36,10 @@ func _on_game_start_animation_end():
 	emit_signal("game_started")
 
 
-func _on_enemy_destroyed():
-	score += 1
-	$UI/Score.text = "SCORE: %i" % score
+func _on_enemy_destroyed(s):
+	score += s
+	$UI/Score.text = "SCORE: %d" % score
+
+
+func _on_victory():
+	$Player._enabled = false

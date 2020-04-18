@@ -28,6 +28,8 @@ func _physics_process(delta: float) -> void:
 
 func _handle_inputs(delta: float) -> void:
 	if not _enabled:
+		if _can_walk:
+			_walk_stop()
 		return
 	var speed: = 0.0
 	if Input.is_action_pressed("move_right"):
@@ -42,8 +44,7 @@ func _handle_inputs(delta: float) -> void:
 	elif not _can_walk && Input.is_action_just_pressed("stand"):
 		_stand_up()
 	elif speed == 0.0 && not _is_still:
-		if _anim.current_animation != "idle" && _anim.current_animation != "stand_up":
-			_walk_stop()
+		_walk_stop()
 
 
 func _walk_start():
@@ -51,7 +52,8 @@ func _walk_start():
 
 
 func _walk_stop():
-	_anim.play("walk_stop")
+	if _anim.current_animation != "idle" && _anim.current_animation != "stand_up":
+		_anim.play("walk_stop")
 
 
 func _stand_up():
