@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Trebuchet.gd" type="Script" id=1]
+[ext_resource path="res://assets/sfx/whoosh.wav" type="AudioStream" id=2]
 
 [sub_resource type="ArrayMesh" id=3]
 resource_name = "Trebuchet Body"
@@ -54,8 +55,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0.7 )
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -85,7 +90,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Trebuchet Sling" type="MeshInstance" parent="."]
-transform = Transform( 0.951057, 0.309017, 0, -0.309017, 0.951057, 0, 0, 0, 1, 0, 2.5368, 0 )
+transform = Transform( 0.999537, -0.0304392, 0, 0.0304392, 0.999537, 0, 0, 0, 1, 0, 2.5368, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -100,4 +105,6 @@ shape = SubResource( 4 )
 anims/attack = SubResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Enemy_SFX"
 [connection signal="body_entered" from="." to="." method="_on_Trebuchet_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Wall.tscn" type="PackedScene" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://src/Trebuchet.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Castle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/MainLevel.gd" type="Script" id=7]
+[ext_resource path="res://assets/title.png" type="Texture" id=8]
+[ext_resource path="res://assets/victory.png" type="Texture" id=9]
+[ext_resource path="res://assets/gameover.png" type="Texture" id=10]
+[ext_resource path="res://assets/sfx/destroy.wav" type="AudioStream" id=11]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -216,8 +220,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 116, 0, 6 )
 
 [node name="Transient" type="Spatial" parent="."]
 
-[node name="Audio" type="AudioStreamPlayer" parent="."]
-autoplay = true
+[node name="DestructionSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -6.058
+bus = "Transient_SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -243,15 +249,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartScreen" type="ColorRect" parent="UI"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -120.0
-margin_top = -112.0
-margin_right = 136.0
-margin_bottom = 128.0
+[node name="StartScreen" type="TextureRect" parent="UI"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -280,37 +281,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameOver" type="Label" parent="UI"]
+[node name="GameOver" type="TextureRect" parent="UI"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -416.0
-margin_top = -136.0
-margin_right = -330.0
-margin_bottom = -109.0
-rect_scale = Vector2( 10, 10 )
+margin_left = -960.0
+margin_top = -544.0
+margin_right = 960.0
+margin_bottom = 536.0
 rect_pivot_offset = Vector2( 3, 0 )
-text = "Game Over"
-align = 1
-valign = 1
+texture = ExtResource( 10 )
 
-[node name="Victory" type="Label" parent="UI"]
+[node name="Victory" type="TextureRect" parent="UI"]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -320.0
-margin_top = -71.9999
-margin_right = -256.0
-margin_bottom = -57.9999
-rect_scale = Vector2( 10, 10 )
-text = "YOU WIN!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_right = 960.0
+margin_bottom = 536.0
+texture = ExtResource( 9 )
 
 [node name="CinematicsController" type="Node" parent="."]
 script = SubResource( 1 )
