@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="LD46 Game_data" version="1.3.0" audacityversion="2.3.2" sel0="-2.4142176871" sel1="26.0700000000" vpos="0" h="0.0000000000" zoom="57.5757575758" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="ENCODER" value="android-audio-recorder"/>
+		<tag name="ARTIST" value="Rongcui Dong"/>
+		<tag name="TITLE" value="LD46 Game"/>
+	</tags>
+	<wavetrack name="LD46 Game T" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="-2.41421769" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1256154">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1ff4f.au" len="262144" min="-0.478098" max="0.454284" rms="0.103984"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="eff1f4f3.au" len="262144" min="-0.330282" max="0.338091" rms="0.106773"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="eff1fbe1.au" len="262144" min="-0.422312" max="0.501187" rms="0.132224"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="eff1f6a0.au" len="262144" min="-0.44363" max="0.501187" rms="0.133434"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="eff1f99f.au" len="207578" min="-0.419346" max="0.419627" rms="0.117837"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="LD46 Game B" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="-1.59789116" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1220154">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f338.au" len="262144" min="-0.362733" max="0.40937" rms="0.097007"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="eff1f107.au" len="262144" min="-0.341112" max="0.321224" rms="0.095748"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="eff1f897.au" len="262144" min="-0.501187" max="0.446374" rms="0.10382"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="eff1fb69.au" len="262144" min="-0.339449" max="0.312077" rms="0.098274"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="eff1f8e2.au" len="171578" min="-0.424268" max="0.444295" rms="0.098122"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

@@ -39,6 +39,9 @@ func _handle_input(delta: float) -> void:
 
 func _on_game_start_animation_end():
 	_game_state = GST_RUNNING
+	$BGMPlayer.stop()
+	$BGMPlayer.stream = load("res://assets/bgm/game.ogg")
+	$BGMPlayer.play()
 	emit_signal("game_started")
 
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="LD46 Victory_data" version="1.3.0" audacityversion="2.3.2" sel0="-0.7045124717" sel1="9.1368027211" vpos="0" h="0.0000000000" zoom="129.1666666667" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="ENCODER" value="android-audio-recorder"/>
+		<tag name="ARTIST" value="Rongcui Dong"/>
+		<tag name="TITLE" value="LD46 Victory"/>
+	</tags>
+	<wavetrack name="LD46 Victory T" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="406801">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fb5f.au" len="171838" min="-0.430459" max="0.501187" rms="0.083689"/>
+				</waveblock>
+				<waveblock start="171838">
+					<simpleblockfile filename="eff1fa2d.au" len="171839" min="-0.371555" max="0.400209" rms="0.082501"/>
+				</waveblock>
+				<waveblock start="343677">
+					<simpleblockfile filename="eff1f85b.au" len="63124" min="-0.26096" max="0.355129" rms="0.060028"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="LD46 Victory B" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="-0.70451247" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="434002">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fe02.au" len="175253" min="-0.232238" max="0.293397" rms="0.079561"/>
+				</waveblock>
+				<waveblock start="175253">
+					<simpleblockfile filename="eff1f272.au" len="179749" min="-0.306784" max="0.354813" rms="0.093696"/>
+				</waveblock>
+				<waveblock start="355002">
+					<simpleblockfile filename="eff1f94f.au" len="79000" min="-0.17887" max="0.235794" rms="0.071359"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
