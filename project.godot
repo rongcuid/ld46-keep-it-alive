@@ -99,10 +99,6 @@ stand={
 3d_physics/layer_7="objective"
 3d_physics/layer_11="reaction_calibrator"
 
-[physics]
-
-2d/thread_model=2
-
 [rendering]
 
 quality/driver/driver_name="GLES2"
