@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Wall.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/victory.png" type="Texture" id=9]
 [ext_resource path="res://assets/gameover.png" type="Texture" id=10]
 [ext_resource path="res://assets/sfx/destroy.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/bgm/title.ogg" type="AudioStream" id=12]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -21,10 +22,12 @@ signal game_start_animation_end
 
 export(NodePath) var player: NodePath
 export(NodePath) var props: NodePath
+export(NodePath) var bgm: NodePath
 
 
 onready var _player: Player = get_node(player) 
 onready var _props: Spatial = get_node(props)
+onready var _bgm: AudioStreamPlayer = get_node(bgm)
 
 
 func _explode_props():
@@ -39,6 +42,7 @@ func _explode_props():
 func _on_MainLevel_game_start_animation_began():
 	emit_signal(\"keep_animate_started\")
 	_explode_props()
+	_bgm.stop()
 	yield(_player, \"keep_animate_ended\")
 	emit_signal(\"game_start_animation_end\")
 "
@@ -306,6 +310,7 @@ texture = ExtResource( 9 )
 script = SubResource( 1 )
 player = NodePath("../Player")
 props = NodePath("../Props")
+bgm = NodePath("../BGMPlayer")
 
 [node name="KeyLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.433013, -0.649519, 0.625, 0.5, 0.75, 0.433013, -0.75, 0.125, 0.649519, 46.2618, 42.3493, 46.9036 )
@@ -321,6 +326,10 @@ light_color = Color( 0.117647, 0.0666667, 0.368627, 1 )
 light_energy = 0.2
 shadow_bias = 0.05
 shadow_reverse_cull_face = true
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
 [connection signal="game_start_animation_began" from="." to="CinematicsController" method="_on_MainLevel_game_start_animation_began"]
 [connection signal="game_started" from="." to="Player" method="_on_Player_enabled"]
 [connection signal="defeated" from="Player" to="." method="_on_Player_defeated"]

@@ -51,6 +51,9 @@ func _on_enemy_destroyed(s):
 func _on_victory():
 	$Player._enabled = false
 	$UI/Victory.visible = true
+	$BGMPlayer.stop()
+	$BGMPlayer.stream = load("res://assets/bgm/victory.ogg")
+	$BGMPlayer.play()
 	_game_state = GST_VICTORY
 
 
@@ -60,4 +63,7 @@ func _on_Player_hp_changed(new_hp):
 
 func _on_Player_defeated():
 	$UI/GameOver.visible = true
+	$BGMPlayer.stop()
+	$BGMPlayer.stream = load("res://assets/bgm/title.ogg")
+	$BGMPlayer.play()
 	_game_state = GST_GAMEOVER
