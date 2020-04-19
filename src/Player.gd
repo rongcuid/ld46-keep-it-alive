@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 
 
 func damage(amount) -> void:
+	$DamageSFX.play()
 	if _is_still:
 		hp -= amount / 4
 	else:

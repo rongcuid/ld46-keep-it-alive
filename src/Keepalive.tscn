@@ -6,7 +6,7 @@
 [node name="Keepalive" instance=ExtResource( 1 )]
 
 [node name="body" parent="KeepArmature/root" index="0"]
-transform = Transform( 1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0, 7.80169, 0 )
+transform = Transform( 1, 1.92905e-09, 2.38411e-07, -1.11022e-16, 0.999967, -0.00809103, -2.38419e-07, 0.00809103, 0.999967, 0, 8.0862, 0 )
 
 [node name="KeepBody" parent="KeepArmature/root/body" index="0"]
 material/0 = ExtResource( 2 )

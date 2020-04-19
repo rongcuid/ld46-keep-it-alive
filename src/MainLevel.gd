@@ -45,6 +45,7 @@ func _on_game_start_animation_end():
 func _on_enemy_destroyed(s):
 	score += s
 	$UI/Score.text = "SCORE: %d" % score
+	$DestructionSFX.play()
 
 
 func _on_victory():
