@@ -10,6 +10,9 @@ export_presets.cfg
 .mono/
 data_*/
 
+export/
+SimpleBake*/
+*.blend1
 # Temporary
-doc/
-raw/
+#doc/
+#raw/

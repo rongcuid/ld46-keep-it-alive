@@ -10,7 +10,6 @@ ground_energy = 0.5
 sun_color = Color( 0.94902, 0.945098, 0.796078, 1 )
 sun_longitude = 33.1
 sun_curve = 0.0129408
-sun_energy = 64.0
 
 [resource]
 background_mode = 2

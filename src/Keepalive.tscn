@@ -6,55 +6,55 @@
 [node name="Keepalive" instance=ExtResource( 1 )]
 
 [node name="body" parent="KeepArmature/root" index="0"]
-transform = Transform( 1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0, 5.57159, 0 )
+transform = Transform( 1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0, 7.80169, 0 )
 
 [node name="KeepBody" parent="KeepArmature/root/body" index="0"]
 material/0 = ExtResource( 2 )
 
 [node name="shoulderBR" parent="KeepArmature/root" index="1"]
-transform = Transform( 0.317007, 0.946941, -0.0529991, -0.943112, 0.308834, -0.12313, -0.100229, 0.0890173, 0.990974, 7.65535e-08, 12.9245, -1.16809e-07 )
+transform = Transform( 0.295982, 0.611206, -0.734045, -0.943112, 0.308834, -0.12313, 0.15144, 0.728731, 0.667845, 7.65535e-08, 12.9245, -1.16809e-07 )
 
 [node name="armBR" parent="KeepArmature/root/shoulderBR" index="0"]
-transform = Transform( 0.997882, 0.055732, -0.0335357, -0.057397, 0.511954, -0.857093, -0.0305988, 0.857203, 0.514069, 1.40809e-06, 6.86458, 7.84035e-07 )
+transform = Transform( 0.940203, 0.304649, 0.152341, -0.291553, 0.951047, -0.102507, -0.176112, 0.0519614, 0.982998, 4.88419e-07, 6.86458, 3.22961e-07 )
 
 [node name="legBR" parent="KeepArmature/root/shoulderBR/armBR" index="0"]
-transform = Transform( 0.0851316, 0.955073, -0.283879, -0.957856, 0, -0.287249, -0.274344, 0.296369, 0.914823, -1.53918e-06, 7.14206, 2.49715e-06 )
+transform = Transform( 0.0851317, 0.955074, -0.283879, -0.957856, 0, -0.287249, -0.274344, 0.296369, 0.914823, -4.92992e-07, 7.14206, 2.34357e-06 )
 
 [node name="TurretBR" parent="KeepArmature/root/shoulderBR/armBR/legBR" index="0"]
 material/0 = ExtResource( 2 )
 
 [node name="shoulderFR" parent="KeepArmature/root" index="2"]
-transform = Transform( -0.157111, 0.986792, 0.0394704, -0.976417, -0.161203, 0.143606, 0.148072, -0.0159774, 0.988847, 2.3527e-07, 12.9245, -3.80932e-09 )
+transform = Transform( -0.0890853, 0.906752, 0.412147, -0.976417, -0.161203, 0.143606, 0.196655, -0.389634, 0.899729, 2.3527e-07, 12.9245, -3.80932e-09 )
 
 [node name="armFR" parent="KeepArmature/root/shoulderFR" index="0"]
-transform = Transform( 0.971032, -0.201129, -0.129011, 0.206879, 0.43747, 0.875112, -0.119572, -0.876452, 0.466406, 8.68469e-07, 5.74143, -2.23864e-07 )
+transform = Transform( 0.981745, -0.173821, 0.0772188, 0.166337, 0.981517, 0.0946421, -0.0922424, -0.0800701, 0.992512, -7.11443e-08, 5.74143, 3.21531e-07 )
 
 [node name="legFR" parent="KeepArmature/root/shoulderFR/armFR" index="0"]
-transform = Transform( -0.00119483, 0.998653, 0.0518626, -0.999735, 5.96046e-08, -0.023033, -0.023002, -0.0518764, 0.998389, -3.35905e-08, 5.32815, 5.25542e-07 )
+transform = Transform( -0.00119483, 0.998653, 0.0518626, -0.999735, 5.96046e-08, -0.023033, -0.0230019, -0.0518764, 0.998389, -1.01112e-06, 5.32815, 9.11284e-08 )
 
 [node name="TurretFR" parent="KeepArmature/root/shoulderFR/armFR/legFR" index="0"]
 material/0 = ExtResource( 2 )
 
 [node name="shoulderBL" parent="KeepArmature/root" index="3"]
-transform = Transform( 0.317007, -0.946941, 0.0529991, 0.943112, 0.308834, -0.12313, 0.100229, 0.0890173, 0.990974, -7.65535e-08, 12.9245, -1.16809e-07 )
+transform = Transform( 0.295982, -0.611206, 0.734045, 0.943112, 0.308834, -0.12313, -0.15144, 0.728731, 0.667845, -7.65535e-08, 12.9245, -1.16809e-07 )
 
 [node name="armBL" parent="KeepArmature/root/shoulderBL" index="0"]
-transform = Transform( 0.997882, -0.055732, 0.0335357, 0.057397, 0.511954, -0.857093, 0.0305988, 0.857203, 0.514069, -1.40809e-06, 6.86458, 7.84035e-07 )
+transform = Transform( 0.940203, -0.304649, -0.152341, 0.291553, 0.951046, -0.102507, 0.176112, 0.0519614, 0.982998, -4.88419e-07, 6.86458, 3.22961e-07 )
 
 [node name="legBL" parent="KeepArmature/root/shoulderBL/armBL" index="0"]
-transform = Transform( 0.0851316, -0.955073, 0.283879, 0.957856, 0, -0.287249, 0.274344, 0.296369, 0.914823, 1.53918e-06, 7.14206, 2.49715e-06 )
+transform = Transform( 0.0851317, -0.955074, 0.283879, 0.957856, 0, -0.287249, 0.274344, 0.296369, 0.914823, 1.40382e-06, 7.14206, 2.06093e-06 )
 
 [node name="TurretBL" parent="KeepArmature/root/shoulderBL/armBL/legBL" index="0"]
 material/0 = ExtResource( 2 )
 
 [node name="shoulderFL" parent="KeepArmature/root" index="4"]
-transform = Transform( -0.157111, -0.986792, -0.0394704, 0.976417, -0.161203, 0.143606, -0.148072, -0.0159774, 0.988847, -2.3527e-07, 12.9245, -3.80932e-09 )
+transform = Transform( -0.0890852, -0.906752, -0.412147, 0.976417, -0.161203, 0.143606, -0.196655, -0.389634, 0.899729, -2.3527e-07, 12.9245, -3.80932e-09 )
 
 [node name="armFL" parent="KeepArmature/root/shoulderFL" index="0"]
-transform = Transform( 0.971032, 0.201129, 0.129011, -0.206879, 0.43747, 0.875112, 0.119572, -0.876452, 0.466406, -8.68469e-07, 5.74143, -2.23864e-07 )
+transform = Transform( 0.981745, 0.173821, -0.0772189, -0.166337, 0.981517, 0.0946419, 0.0922424, -0.0800699, 0.992512, -5.18901e-08, 5.74143, -1.23269e-07 )
 
 [node name="legFL" parent="KeepArmature/root/shoulderFL/armFL" index="0"]
-transform = Transform( -0.00119483, -0.998653, -0.0518626, 0.999735, 5.96046e-08, -0.023033, 0.023002, -0.0518764, 0.998389, 3.35905e-08, 5.32815, 5.25542e-07 )
+transform = Transform( -0.00119483, -0.998653, -0.0518626, 0.999735, 5.96046e-08, -0.023033, 0.023002, -0.0518764, 0.998389, 5.98662e-08, 5.32815, 1.97189e-08 )
 
 [node name="TurretFL" parent="KeepArmature/root/shoulderFL/armFL/legFL" index="0"]
 material/0 = ExtResource( 2 )

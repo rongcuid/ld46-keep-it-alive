@@ -36,6 +36,7 @@ extents = Vector3( 4, 2, 1 )
 [sub_resource type="Animation" id=5]
 resource_name = "attack"
 length = 5.0
+loop = true
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Trebuchet Sling:rotation_degrees:z")
 tracks/0/interp = 1
@@ -84,9 +85,12 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Trebuchet Sling" type="MeshInstance" parent="."]
-transform = Transform( 0.486063, -0.873924, 0, 0.873924, 0.486063, 0, 0, 0, 1, 0, 2.5368, 0 )
+transform = Transform( 0.951057, 0.309017, 0, -0.309017, 0.951057, 0, 0, 0, 1, 0, 2.5368, 0 )
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="Cradle" type="Spatial" parent="Trebuchet Sling"]
+transform = Transform( 1, -5.96046e-08, 0, 5.96046e-08, 1, 0, 0, 0, 1, 6.7902, 0.103347, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0 )

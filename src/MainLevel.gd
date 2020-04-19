@@ -14,6 +14,9 @@ func _ready():
 	set_physics_process(true)
 	for e in $Enemies.get_children():
 		e.connect("destroyed", self, "_on_enemy_destroyed")
+		connect("game_started", e, "_on_game_started")
+		if e.has_method("set_transient"):
+			e.set_transient($Transient)
 
 
 func _physics_process(delta: float) -> void:
@@ -27,6 +30,9 @@ func _handle_input(delta: float) -> void:
 				_game_state = GST_START_ANIMATION
 				$UI/StartScreen.visible = false
 				emit_signal("game_start_animation_began")
+		GST_VICTORY, GST_GAMEOVER:
+			if Input.is_action_just_pressed("ui_accept") || Input.is_action_just_pressed("ui_cancel"):
+				get_tree().reload_current_scene()
 		_:
 			return
 
@@ -43,3 +49,14 @@ func _on_enemy_destroyed(s):
 
 func _on_victory():
 	$Player._enabled = false
+	$UI/Victory.visible = true
+	_game_state = GST_VICTORY
+
+
+func _on_Player_hp_changed(new_hp):
+	$UI/HealthBar/Health.value = clamp(new_hp, 0, 100)
+
+
+func _on_Player_defeated():
+	$UI/GameOver.visible = true
+	_game_state = GST_GAMEOVER

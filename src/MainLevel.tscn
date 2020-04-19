@@ -44,6 +44,8 @@ script = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0 )
+movement_speed = 3.0
+transient = NodePath("../Transient")
 
 [node name="Camera" type="Camera" parent="Player"]
 transform = Transform( 0.984808, -0.0154092, 0.172963, 0, 0.996055, 0.0887378, -0.173648, -0.0873897, 0.980923, 12.426, 14.467, 35 )
@@ -53,13 +55,13 @@ fov = 57.0
 [node name="Terrain" type="Spatial" parent="."]
 
 [node name="Ground" parent="Terrain" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -50, 0 )
 
 [node name="Ground2" parent="Terrain" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -50, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73, -50, 0 )
 
 [node name="Ground3" parent="Terrain" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, -50, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 173, -50, 0 )
 
 [node name="Props" type="Spatial" parent="."]
 
@@ -150,7 +152,7 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 0,
 [node name="Enemies" type="Spatial" parent="."]
 
 [node name="Castle" parent="Enemies" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 171, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 165, 0, 0 )
 
 [node name="Army" parent="Enemies" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
@@ -188,26 +190,31 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, 2 )
 [node name="Trebuchet5" parent="Enemies" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, -9 )
 
-[node name="Trebuchet4" parent="Enemies" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, 6 )
-
-[node name="Trebuchet7" parent="Enemies" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, -9 )
-
 [node name="Trebuchet6" parent="Enemies" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 6 )
 
 [node name="Trebuchet9" parent="Enemies" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, 0, -9 )
 
+[node name="Trebuchet12" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, -2 )
+
 [node name="Trebuchet8" parent="Enemies" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, 0, 6 )
 
+[node name="Trebuchet13" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 0, 2 )
+
 [node name="Trebuchet11" parent="Enemies" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, 0, -9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 130, 0, -5 )
+
+[node name="Trebuchet15" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 130, 0, 5 )
 
 [node name="Trebuchet10" parent="Enemies" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, 0, 6 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 116, 0, 6 )
+
+[node name="Transient" type="Spatial" parent="."]
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 autoplay = true
@@ -273,12 +280,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GameOver" type="Label" parent="UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -416.0
+margin_top = -136.0
+margin_right = -330.0
+margin_bottom = -109.0
+rect_scale = Vector2( 10, 10 )
+rect_pivot_offset = Vector2( 3, 0 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="Victory" type="Label" parent="UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -71.9999
+margin_right = -256.0
+margin_bottom = -57.9999
+rect_scale = Vector2( 10, 10 )
+text = "YOU WIN!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CinematicsController" type="Node" parent="."]
 script = SubResource( 1 )
 player = NodePath("../Player")
 props = NodePath("../Props")
 [connection signal="game_start_animation_began" from="." to="CinematicsController" method="_on_MainLevel_game_start_animation_began"]
 [connection signal="game_started" from="." to="Player" method="_on_Player_enabled"]
+[connection signal="defeated" from="Player" to="." method="_on_Player_defeated"]
+[connection signal="hp_changed" from="Player" to="." method="_on_Player_hp_changed"]
 [connection signal="victory" from="Enemies/Castle" to="." method="_on_victory"]
 [connection signal="game_start_animation_end" from="CinematicsController" to="." method="_on_game_start_animation_end"]
 [connection signal="keep_animate_started" from="CinematicsController" to="Player" method="_on_keep_animate_started"]
